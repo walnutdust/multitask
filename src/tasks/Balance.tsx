@@ -84,7 +84,7 @@ const Beam = ({
 };
 
 const BalanceScene = ({ displacement }: { displacement: Vector3 }) => {
-  useNet(displacement);
+  useNet();
 
   return (
     <MiniScene name="Balance Scene" displacement={displacement}>

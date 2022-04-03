@@ -111,7 +111,6 @@ const Overlays = () => {
 export default function App() {
   const api = useStore((state) => state.api);
   const timer = useStore((state) => state.timer);
-  const gameState = useStore((state) => state.state);
 
   useEffect(() => {
     const handleKeydown = ({ key }: KeyboardEvent) => {
@@ -122,6 +121,7 @@ export default function App() {
       }
     };
     window.addEventListener("keydown", handleKeydown);
+
     api.startGame(views);
 
     return () => {
@@ -132,24 +132,19 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    console.log(gameState);
-  }, [gameState]);
-
   return (
     <>
       <Overlays />
-      <Canvas camera={{ fov: 50, far: config.FAR }} shadows mode="concurrent">
+      <Canvas camera={{ fov: 50, far: config.FAR }} shadows>
         <MultiScene />
-        {views.map(({ game, displacement }) =>
-          game({
-            displacement: new Vector3(
-              displacement[0],
-              displacement[1],
-              displacement[2]
-            ),
-          })
-        )}
+        {views.map(({ Game, displacement }) => (
+          <Game
+            displacement={
+              new Vector3(displacement[0], displacement[1], displacement[2])
+            }
+            key={displacement[0]}
+          />
+        ))}
       </Canvas>
     </>
   );

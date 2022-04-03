@@ -1,3 +1,4 @@
+import { PropsWithChildren } from "react";
 import { Vector3 } from "three";
 
 const MiniScene = ({
@@ -5,12 +6,11 @@ const MiniScene = ({
   name = "",
   directionalLightPosition = new Vector3(4, 5, 3),
   displacement = new Vector3(0, 0, 0),
-}: {
-  children?: JSX.Element[] | JSX.Element;
+}: PropsWithChildren<{
   name?: string;
   directionalLightPosition?: Vector3;
   displacement?: Vector3;
-}) => {
+}>) => {
   return (
     <scene name={name} userData={{ isMiniScene: true }} position={displacement}>
       <ambientLight intensity={0.25} />

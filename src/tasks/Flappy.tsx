@@ -1,4 +1,9 @@
-import { Physics, useBox, useCompoundBody } from "@react-three/cannon";
+import {
+  Physics,
+  useBox,
+  useCompoundBody,
+  CollideEvent,
+} from "@react-three/cannon";
 import { MeshStandardMaterial, BoxGeometry } from "three";
 
 import type { Triplet } from "@react-three/cannon";
@@ -94,7 +99,7 @@ const Column = ({
         type: "Box",
       },
     ],
-    onCollide: (event) => {
+    onCollide: (event: CollideEvent) => {
       if (event.body !== endRef.current) return;
       const contactPoint = event.contact.contactPoint;
 
@@ -167,7 +172,7 @@ const Columns = () => {
 
 const Flappy = ({ displacement }: { displacement: Vector3 }) => {
   const endGame = useStore((state) => state.api.endGame);
-  useNet(displacement);
+  useNet();
   const controls = useControls();
 
   return (

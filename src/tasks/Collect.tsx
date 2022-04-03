@@ -189,7 +189,7 @@ const Arena = () => {
         position={[0, 0, 1]}
         color="#614700"
       >
-        to Move
+        to Collect Cubes
       </Text>
     </group>
   );

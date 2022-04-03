@@ -25,7 +25,7 @@ function useKeyControls(
 
 const keyControlMap = {
   " ": "space",
-  Enter: "enter",
+  Shift: "shift",
   ArrowLeft: "left",
   ArrowRight: "right",
   a: "keyboardLeft",
@@ -51,7 +51,7 @@ export function useControls() {
     left: false,
     right: false,
     space: false,
-    enter: false,
+    shift: false,
   });
 
   useKeyControls(controls, keyControlMap);

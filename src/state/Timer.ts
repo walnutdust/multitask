@@ -16,7 +16,9 @@ class Timer {
   private _startTime: number;
   private _currTimeElapsed: number = 0;
   private _prevTimeElapsed: number = 0;
+
   private _isRunning: boolean = false;
+  private _isStarted: boolean = false;
 
   private _subscriptions: Map<number, TimerSubscription> = new Map();
   private _timeouts: Map<number, TimerTimeout> = new Map();
@@ -71,6 +73,7 @@ class Timer {
   }
 
   start() {
+    this._isStarted = true;
     this.resume();
   }
 
@@ -102,6 +105,7 @@ class Timer {
     this._currTimeElapsed = 0;
     this._prevTimeElapsed = 0;
     this._isRunning = false;
+    this._isStarted = false;
   }
 
   unsubscribe(id: number) {

@@ -1433,13 +1433,6 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@pmndrs/cannon-worker-api@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@pmndrs/cannon-worker-api/-/cannon-worker-api-1.1.0.tgz#12252f7a1918bed3d83fab5a042a88ff5478d5a4"
-  integrity sha512-blKSJiuOpxH5var+aXhXMQG4yoFzvN2xueEleNLTQyDM242ufcev7sxyu2sDlzCvB+NCQeYnreUoaZBSEA5MCA==
-  dependencies:
-    three "^0.137.0"
-
 "@react-spring/animated@~9.4.4":
   version "9.4.4"
   resolved "https://registry.yarnpkg.com/@react-spring/animated/-/animated-9.4.4.tgz#15e21923e55c06ca2bcea432869b91b2f8b07519"
@@ -2047,10 +2040,10 @@
   dependencies:
     "@types/jest" "*"
 
-"@types/three@^0.138.0":
-  version "0.138.0"
-  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.138.0.tgz#ec9f1d1fd8dffea2e0572f9d815ff5a35cf4dc6b"
-  integrity sha512-D8AoV7h2kbCfrv/DcebHOFh1WDwyus3HdooBkAwcBikXArdqnsQ38PQ85JCunnvun160oA9jz53GszF3zch3tg==
+"@types/three@^0.137.0":
+  version "0.137.0"
+  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.137.0.tgz#6047e0658262b4de7c464a40288f9071ddd9a6d5"
+  integrity sha512-Xc5EAlfYmgrCLI/VlSVqiRJAtzhWF0Rw2jSq48nqJy+Hcb5sfDOXyfZn1+RNcHyi9l8CeCAXCZygO8IyeOJVEA==
 
 "@types/trusted-types@^2.0.2":
   version "2.0.2"
@@ -8511,15 +8504,10 @@ three-stdlib@^2.8.9:
     potpack "^1.0.1"
     zstddec "^0.0.2"
 
-three@^0.137.0:
+three@^0.137.0, three@^0.137.5:
   version "0.137.5"
   resolved "https://registry.yarnpkg.com/three/-/three-0.137.5.tgz#a1e34bedd0412f2d8797112973dfadac78022ce6"
   integrity sha512-rTyr+HDFxjnN8+N/guZjDgfVxgHptZQpf6xfL/Mo7a5JYIFwK6tAq3bzxYYB4Ae0RosDZlDuP+X5aXDXz+XnHQ==
-
-three@^0.139.0:
-  version "0.139.0"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.139.0.tgz#4805eeb4cde85d8a82b6048088230f8ce5b75375"
-  integrity sha512-hZ4LkCjgoEM82WLaOVptDKGpB3SkEyuJP2OHe36AFO8hS2I6CrEiNanXj7wwR3wIPT7V5wi5Y5pFnncS5SVHgQ==
 
 throat@^6.0.1:
   version "6.0.1"
@@ -8872,11 +8860,6 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
-
-web-vitals@^2.1.0:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-2.1.4.tgz#76563175a475a5e835264d373704f9dde718290c"
-  integrity sha512-sVWcwhU5mX6crfI5Vd2dC4qchyTqxV8URinzt25XqVh+bHEPGH4C3NPrNionCP7Obx59wrYEbNlw4Z8sjALzZg==
 
 webgl-constants@^1.1.1:
   version "1.1.1"

@@ -1,4 +1,4 @@
-import { useBox, Physics } from "@react-three/cannon";
+import { useBox, Physics, CollideEvent } from "@react-three/cannon";
 import create from "zustand";
 
 import type { Triplet } from "@react-three/cannon";
@@ -87,7 +87,7 @@ const Stone = ({
   const setPrevStoneExists = useJumpStore((state) => state.setPrevStoneExists);
 
   // Since [0, 0, 0] is the middle of the screen, we want to displace the
-  // starting position by halfNumberOfStones * the stone's width
+  // starting position by the following:
   const startingPosition = useMemo(
     () => config.stone.width * (index - halfNumberOfStones + 0.5),
 
@@ -109,7 +109,7 @@ const Stone = ({
       velocity: [-stoneConfig.initialVelocity, 0, 0],
 
       // When it collides with the end it respawns
-      onCollideBegin: (event) => {
+      onCollideBegin: (event: CollideEvent) => {
         if (event.body !== endRef.current) return;
 
         // Random roll to determine if the tile should respawn at the same level
@@ -120,7 +120,7 @@ const Stone = ({
         setPrevStoneExists(visible);
 
         api.position.set(
-          halfNumberOfStones * stoneConfig.width,
+          ((config.experience.numberOfStones - 1) / 2) * stoneConfig.width,
           visible ? 0 : 15,
           0
         );
@@ -146,7 +146,7 @@ const Stone = ({
 
 const CobbleStones = () => {
   // This box just marks the end of the path, and intersects with the stones to
-  // get them to respawn, so that we can
+  // get them to respawn.
   const [endRef] = useBox(() => {
     return {
       args: [20, 0, 20],
@@ -173,7 +173,7 @@ const CobbleStones = () => {
 
 const JumpScene = ({ displacement }: { displacement: Vector3 }) => {
   const controls = useControls();
-  useNet(displacement);
+  useNet();
 
   return (
     <MiniScene name="Jump Scene" displacement={displacement}>
@@ -181,9 +181,9 @@ const JumpScene = ({ displacement }: { displacement: Vector3 }) => {
         game={GAMES.JUMP}
         name="Jump Ball"
         useFrameFn={(ref, api) => () => {
-          const { enter } = controls.current;
+          const { shift } = controls.current;
 
-          if (enter && ref.current?.matrix) {
+          if (shift && ref.current?.matrix) {
             const y = ref.current.matrix.elements[13];
 
             if (y > 0.6 || y < 0.45) return;
@@ -198,7 +198,7 @@ const JumpScene = ({ displacement }: { displacement: Vector3 }) => {
         position={[0, 0.5, -config.stone.width / 2]}
         textProps={{ height: 1 }}
       >
-        Enter to Jump
+        Shift to Jump
       </Text>
     </MiniScene>
   );

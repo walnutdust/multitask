@@ -5,14 +5,14 @@ import type { GAMES } from "../state/state";
 type RawViewArgs = {
   background: Color;
   cameraRelToCenter: Triplet;
-  game: ({ displacement }: { displacement: Vector3 }) => JSX.Element;
+  Game: ({ displacement }: { displacement: Vector3 }) => JSX.Element;
   gameType: GAMES;
 };
 
 type ViewArgs = {
   background: Color;
   cameraRelToCenter: Triplet;
-  game: ({ displacement }: { displacement: Vector3 }) => JSX.Element;
+  Game: ({ displacement }: { displacement: Vector3 }) => JSX.Element;
   startTime: number;
   gameType: GAMES;
   displacement: Triplet;

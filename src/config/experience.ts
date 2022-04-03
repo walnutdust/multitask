@@ -22,17 +22,17 @@ const rawViews: RawViewArgs[] = [
     background: new Color(0.5, 0.5, 0.7),
     cameraRelToCenter: [-4, 5, 7],
     gameType: GAMES.JUMP,
-    game: Jump,
+    Game: Jump,
   },
   {
     background: new Color(0.7, 0.5, 0.5),
     cameraRelToCenter: [-4, 3, 7],
     gameType: GAMES.BALANCE,
-    game: Balance,
+    Game: Balance,
   },
   {
     background: new Color("#ffffb8"),
-    game: Collect,
+    Game: Collect,
     gameType: GAMES.COLLECT,
     cameraRelToCenter: [0, 25, 0],
   },
@@ -40,7 +40,7 @@ const rawViews: RawViewArgs[] = [
     background: new Color("#bae7ff"),
     cameraRelToCenter: [-8, 0, 20],
     gameType: GAMES.FLAPPY,
-    game: Flappy,
+    Game: Flappy,
   },
 ];
 
